@@ -1,0 +1,82 @@
+<div class='text-md-center'>
+  <h1>{{ titleMessage }}</h1>
+</div>
+
+<div class='text-danger' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+<table class='table' *ngIf='loans && loans.length'>
+  <thead class='thead-inverse'>
+  <tr>
+    <th>Срок</th>
+    <th>Сумма</th>
+    <th class="text-md-center">Дата</th>
+    <th class="text-md-center">Страна</th>
+    <th class="text-md-center">ФИО</th>
+    <th class="text-md-center">Редактировать</th>
+    <th class="text-md-center">Удалить</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor='let loan of loans'>
+    <td>{{loan.term}}</td>
+    <td>{{loan.amount | currency:'USD':true:'1.0'}}</td>
+    <th>{{loan.added | date:'short'}}</th>
+    <th class="text-md-center">{{loan.countryCode}}</th>
+    <th>{{loan.user.name}} {{loan.user.surName}}</th>
+    <td class="text-md-center"><a class="btn btn-info" (click)='setLoan(loan)'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+    <td class="text-md-center"><a class="btn btn-danger" (click)='deleteLoan(loan.loanId)'><i class="fa fa-trash" aria-hidden="true"></i></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div>
+  <h1 class='text-md-center'>{{checkLoanExist(loan.loanId) ? 'Редактировать': 'Добавить'}} займ</h1>
+</div>
+<form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+  <div ngModelGroup="userData">
+    <div class="form-group">
+      <label for="term">Срок</label>
+      <input type="number"
+             class="form-control"
+             id="term"
+             [(ngModel)]="loan.term"
+             name="term"
+             required
+             #term="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="amount">Сумма</label>
+      <input type="number"
+             class="form-control"
+             id="amount"
+             [(ngModel)]="loan.amount"
+             name="amount"
+             required
+             #amount="ngModel">
+    </div>
+    <div *ngIf='!checkLoanExist(loan.loanId)' class="form-group">
+      <label for="user">Пользователь</label>
+      <select class="form-control"
+              id="user"
+              required
+              [(ngModel)]="loan.user"
+              name="user">
+        <option *ngFor="let user of users" [ngValue]="user">{{user.name}} {{user.surName}}</option>
+      </select>
+    </div>
+
+    <div *ngIf='checkLoanExist(loan.loanId)' class="form-group">
+      <label for="existUser">Пользователь</label>
+      <input type="input"
+             class="form-control"
+             [ngModel]="loan.user.surName"
+             name="user"
+             id="existUser"
+             disabled
+             #user="ngModel">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Сохранить</button>
+  <a class="btn btn-secondary" (click)='clear()'>Очистить</a>
+</form>

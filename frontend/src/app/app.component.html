@@ -1,0 +1,21 @@
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+    <!--<a class="navbar-brand" href="/">{{title}}</a>-->
+    <ul class="nav navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/users']"><i class="fa fa-users" aria-hidden="true"></i> Пользователи</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/loans']"><i class="fa fa-money" aria-hidden="true"></i> Займы</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/kkozlovsky"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a>
+      </li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="starter-template">
+    <h1>Bootstrap starter template</h1>
+        <router-outlet></router-outlet>
+    </div>
+</div>
