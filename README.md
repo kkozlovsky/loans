@@ -135,3 +135,4 @@ http://localhost:8080/apiusers/users/{userId} DELETE
 - Возможность генерировать случайного пользователя
  
 Для тестрирования API использовался [YARC!](http://yet-another-rest-client.com/)
+![rest_api](https://github.com/kkozlovsky/loans/blob/master/backend/src/main/resources/RestApi.png)
