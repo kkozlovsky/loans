@@ -31,7 +31,8 @@ public class SwaggerConfig {
 					.includePatterns("/apiloans/loans/*.*",
 									 "/apiloans/users/*.*",
 									 "/apiusers/users/*.*",
-									 "/apiusers/blacklist");
+									 "/apiusers/blacklist",
+									 "/apiusers/generate");
 
 		swaggerSpringMvcPlugin.useDefaultResponseMessages(false);
 

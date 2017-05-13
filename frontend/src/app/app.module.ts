@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { UsersItemComponent } from './users/users-item/users-item.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { LoansListComponent } from './loans/loans-list/loans-list.component';
 import { UsersService } from './users/users.service';
@@ -16,7 +15,6 @@ import {LoansService} from "./loans/loans.service";
 @NgModule({
   declarations: [
     AppComponent,
-    UsersItemComponent,
     UsersListComponent,
     LoansListComponent
   ],

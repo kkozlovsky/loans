@@ -84,4 +84,14 @@ export class UsersListComponent implements OnInit {
         error => this.errorMessage = <any>error);
   }
 
+  private generateRandomUser() {
+    this.usersService.generateRandomUser()
+      .subscribe(user => {
+          console.log(user);
+          this.reload()
+        },
+        error => this.errorMessage = <any>error);
+    this.clear();
+  }
+
 }

@@ -1,13 +1,13 @@
 # Тестовое задание
 Используемые технологии:
 * Backend:
-  - [Spring Boot](https://projects.spring.io/spring-boot/)
-  - [Spring Data JPA](http://projects.spring.io/spring-data-jpa/)
-  - [H2 Database](http://www.h2database.com/html/main.html)
-  - [Gradle](https://gradle.org/)
-  - [Project Lombok](https://projectlombok.org/)
-  - [JUnit](http://junit.org/junit4/)
-  - [Swagger](http://swagger.io/)
+    - [Spring Boot](https://projects.spring.io/spring-boot/)
+    - [Spring Data JPA](http://projects.spring.io/spring-data-jpa/)
+    - [H2 Database](http://www.h2database.com/html/main.html)
+    - [Gradle](https://gradle.org/)
+    - [Project Lombok](https://projectlombok.org/)
+    - [JUnit](http://junit.org/junit4/)
+    - [Swagger](http://swagger.io/)
 * Frontend  
     - [Angular 4](https://angular.io/)
     - [bootstrap 4](https://v4-alpha.getbootstrap.com/)
@@ -132,5 +132,6 @@ http://localhost:8080/apiusers/users/{userId} DELETE
 - Отклонять заявку, если она пришла от пользователя из чёрного списка
 - Пользователь может создать не более одной заявки в секунду
 - Необходимо определить код страны из которой пришёл запрос
+- Возможность генерировать случайного пользователя
  
-Для тестрирования в браузере использовался [YARC!](http://yet-another-rest-client.com/)***
+Для тестрирования API использовался [YARC!](http://yet-another-rest-client.com/)

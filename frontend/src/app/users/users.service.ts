@@ -22,6 +22,7 @@ export class User implements IUser{
 export class UsersService {
 
   private usersUrl:string = 'http://localhost:8080/apiusers/users';
+  private generateUserUrl:string = 'http://localhost:8080/apiusers/generate';
   private blacklistUrl:string = 'http://localhost:8080/apiusers/blacklist';
   private options = new RequestOptions({ headers : new Headers({ 'Content-Type': 'application/json' }) });
 
@@ -80,4 +81,11 @@ export class UsersService {
       .catch(this.handleError);
   }
 
+
+  generateRandomUser():Observable<IUser[]> {
+    return this.http.get(this.generateUserUrl)
+      .map((response:Response) => <IUser[]> response.json())
+      .do(data => console.log('Random User: ' + JSON.stringify(data)))
+      .catch(this.handleError);
+  }
 }

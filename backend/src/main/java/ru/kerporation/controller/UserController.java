@@ -56,4 +56,10 @@ public class UserController {
         return new ResponseEntity<>(userService.getBlacklist(), HttpStatus.OK);
     }
 
+    @ApiOperation(value = "Сгенерировать нового заёмщика", response = User.class)
+    @RequestMapping(value = "/generate", method = RequestMethod.GET)
+    public ResponseEntity<User> generateRandom() {
+        return new ResponseEntity<>(userService.generateRandomUser(), HttpStatus.OK);
+    }
+
 }
